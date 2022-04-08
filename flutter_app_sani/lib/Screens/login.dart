@@ -1,9 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sani/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_app_sani/Screens/signup.dart';
 
+import 'home_screen.dart';
+
 class LoginPage extends StatelessWidget {
+  TextEditingController loginController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,8 +60,8 @@ class LoginPage extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: <Widget>[
-                      inputFile(label: "Email"),
-                      inputFile(label: "Password", obscureText: true)
+                      inputFile("Email", false, loginController),
+                      inputFile("Password", true, passwordController)
                     ],
                   ),
                 ),
@@ -65,7 +71,21 @@ class LoginPage extends StatelessWidget {
                     child: MaterialButton(
                       minWidth: double.infinity,
                       height: 40,
-                      onPressed: () {},
+                      onPressed: () {
+                        FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
+                                email: loginController.text,
+                                password: passwordController.text)
+                            .then((value) {
+                          print("Access Success");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomeScreen()));
+                        }).onError((error, stackTrace) {
+                          print("Error ${error.toString()}");
+                        });
+                      },
                       color: bluPrimaryColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)),
@@ -132,11 +152,12 @@ class btnRegistrati extends StatelessWidget {
 }
 
 // we will be creating a widget for text field
-Widget inputFile({label, obscureText = false}) {
+Widget inputFile(label, obscureText, controller) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
       TextField(
+        controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
             hintText: label,

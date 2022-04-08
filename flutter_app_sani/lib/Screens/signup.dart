@@ -1,9 +1,15 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sani/Screens/home_screen.dart';
 import 'package:flutter_app_sani/Screens/login.dart';
 import 'package:flutter_app_sani/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignupPage extends StatelessWidget {
+  TextEditingController loginController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController passwordConfirmController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +30,7 @@ class SignupPage extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20),
           height: MediaQuery.of(context).size.height,
@@ -60,18 +66,31 @@ class SignupPage extends StatelessWidget {
                   )
                 ],
               ),
-              Column(
-                children: <Widget>[
-                  inputFile(label: "Email"),
-                  inputFile(label: "Password", obscureText: true),
-                  inputFile(label: "Conferma Password ", obscureText: true),
-                ],
-              ),
+              Column(children: <Widget>[
+                inputFile("Email", false, loginController),
+                inputFile("Password", true, passwordController),
+                inputFile(
+                    "Conferma Password ", true, passwordConfirmController),
+              ]),
               Container(
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: 40,
-                  onPressed: () {},
+                  onPressed: () {
+                    FirebaseAuth.instance
+                        .createUserWithEmailAndPassword(
+                            email: loginController.text,
+                            password: passwordController.text)
+                        .then((value) {
+                      print("Created New Account");
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
+                    }).onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+                    });
+                  },
                   color: bluPrimaryColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50)),
@@ -100,7 +119,7 @@ class SignupPage extends StatelessWidget {
 }
 
 // we will be creating a widget for text field
-Widget inputFile({label, obscureText = false}) {
+Widget inputFile(label, obscureText, TextEditingController controller) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: <Widget>[
@@ -108,6 +127,7 @@ Widget inputFile({label, obscureText = false}) {
         height: 5,
       ),
       TextField(
+        controller: controller,
         obscureText: obscureText,
         decoration: InputDecoration(
             hintText: label,
