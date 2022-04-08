@@ -107,7 +107,7 @@ class SplashScreen extends StatelessWidget {
       },
       // defining the shape
       shape: RoundedRectangleBorder(
-          side: BorderSide(color: grayPrimariyColor),
+          side: BorderSide(color: grayPrimaryColor),
           borderRadius: BorderRadius.circular(50)),
       child: Text(
         "Accedi",
