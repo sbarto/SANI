@@ -1,6 +1,6 @@
 import 'package:flutter_app_sani/Screens/login.dart';
 import 'package:flutter_app_sani/Screens/signup.dart';
-import 'dart:ui';
+import 'package:flutter_app_sani/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:flutter/material.dart';
@@ -36,10 +36,12 @@ class SplashScreen extends StatelessWidget {
                             image: AssetImage("assets/logo.png"))),
                   ),
                   Text(
-                    'This is Google Fonts',
+                    'PERSONAL HEALTH PROFILE',
                     style: GoogleFonts.poppins(
-                      textStyle:
-                          TextStyle(color: Colors.blue, letterSpacing: .5),
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 20,
+                      color: bluPrimaryColor,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ],
@@ -52,51 +54,64 @@ class SplashScreen extends StatelessWidget {
               ),
               Column(
                 children: <Widget>[
-                  // the login button
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
-                    },
-                    // defining the shape
-                    shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Colors.black),
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Text(
-                      "Login",
-                      style:
-                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                  Text(
+                    'La tua personale cartella clinica sempre a portata di mano',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.poppins(
+                      textStyle: Theme.of(context).textTheme.headline4,
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
-                  // creating the signup button
                   SizedBox(height: 20),
-                  MaterialButton(
-                    minWidth: double.infinity,
-                    height: 60,
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignupPage()));
-                    },
-                    color: Color(0xff0095FF),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50)),
-                    child: Text(
-                      "Sign up",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18),
-                    ),
-                  )
+                  // the login button
+                  btn_signin(context),
+                  // creating the signup button
+                  SizedBox(height: 2),
+                  btn_signup(context),
                 ],
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  MaterialButton btn_signup(BuildContext context) {
+    return MaterialButton(
+      minWidth: double.infinity,
+      height: 40,
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SignupPage()));
+      },
+      color: bluPrimaryColor,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+      child: Text(
+        "Registrati",
+        style: TextStyle(
+            color: Colors.white, fontWeight: FontWeight.w600, fontSize: 18),
+      ),
+    );
+  }
+
+  MaterialButton btn_signin(BuildContext context) {
+    return MaterialButton(
+      minWidth: double.infinity,
+      height: 40,
+      onPressed: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LoginPage()));
+      },
+      // defining the shape
+      shape: RoundedRectangleBorder(
+          side: BorderSide(color: grayPrimariyColor),
+          borderRadius: BorderRadius.circular(50)),
+      child: Text(
+        "Accedi",
+        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
       ),
     );
   }
