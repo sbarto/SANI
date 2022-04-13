@@ -4,7 +4,7 @@ import 'package:flutter_app_sani/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_app_sani/Screens/signup.dart';
 
-import 'home_screen.dart';
+import 'my_home_page.dart';
 
 class LoginPage extends StatelessWidget {
   TextEditingController loginController = TextEditingController();
@@ -81,7 +81,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => HomeScreen()));
+                                  builder: (context) => MyHomePage()));
                         }).onError((error, stackTrace) {
                           print("Error ${error.toString()}");
                         });

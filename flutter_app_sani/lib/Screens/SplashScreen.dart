@@ -21,7 +21,7 @@ class SplashScreen extends StatelessWidget {
 
           width: double.infinity,
           height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             // even space distribution
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -30,19 +30,10 @@ class SplashScreen extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Container(
-                    height: MediaQuery.of(context).size.height / 5,
+                    height: MediaQuery.of(context).size.height / 4,
                     decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("assets/logo.png"))),
-                  ),
-                  Text(
-                    'PERSONAL HEALTH PROFILE',
-                    style: GoogleFonts.poppins(
-                      textStyle: Theme.of(context).textTheme.headline4,
-                      fontSize: 20,
-                      color: bluPrimaryColor,
-                      fontWeight: FontWeight.w700,
-                    ),
                   ),
                 ],
               ),

@@ -38,7 +38,7 @@ class SignupPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                height: MediaQuery.of(context).size.height / 5,
+                height: MediaQuery.of(context).size.height / 4,
                 decoration: BoxDecoration(
                     image:
                         DecorationImage(image: AssetImage("assets/logo.png"))),
