@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter_app_sani/constants.dart';
 import 'package:flutter_app_sani/models/categories.dart';
 
 class categoryDetail extends StatelessWidget {
@@ -9,6 +7,11 @@ class categoryDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Card(
+      elevation: 5,
+      child: Row(
+        children: <Widget>[Container(margin: EdgeInsets.all(5)), Text("data")],
+      ),
+    );
   }
 }

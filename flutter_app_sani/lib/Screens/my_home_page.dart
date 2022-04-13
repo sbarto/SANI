@@ -23,14 +23,14 @@ class MyHomePage extends StatelessWidget {
                       TextSpan(
                         children: [
                           TextSpan(
-                            text: "Hello,\n",
+                            text: "Benvenuto,\n",
                             style: kTitleStyle.copyWith(
                               fontSize: 26.0,
                               color: kGrey2Color,
                             ),
                           ),
                           TextSpan(
-                            text: "Flutter World",
+                            text: "nella tua cartella sanitaria",
                             style: kTitleStyle.copyWith(
                               fontSize: 26.0,
                             ),
@@ -59,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                 child: Center(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: "Search",
+                      hintText: "Cerca",
                       icon: Icon(
                         FontAwesomeIcons.search,
                         size: 20.0,
