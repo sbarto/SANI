@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 const bluPrimaryColor = Color(0xff5079CA);
 const grayPrimaryColor = Color(0xFFC4C4C4);
+const grayDarkPrimaryColor = Color(0xFFCCCCCC);
 
 const kGrey1Color = Color(0xFFF3F3F3);
 const kGrey2Color = Color(0xFFA9A8A8);
@@ -16,6 +17,14 @@ const kGreen2Color = Color(0xFF58c697);
 var kTitleStyle = GoogleFonts.lato(
   textStyle: TextStyle(
     fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  ),
+);
+
+var titoloCategorie = GoogleFonts.lato(
+  textStyle: TextStyle(
+    fontSize: 17.0,
     fontWeight: FontWeight.bold,
     color: Colors.black,
   ),

@@ -59,3 +59,8 @@ flutter:
     - assets/ricerca.png
     - assets/man-icon.svg
     - assets/user.png
+    - assets/visite.png
+    - assets/esami_diagnostici.png
+    - assets/analisi.png
+    - assets/controlli.png
+    - assets/farmaci.png

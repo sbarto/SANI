@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/constants.dart';
+import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_app_sani/Screens/signup.dart';
 

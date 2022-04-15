@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/Screens/home_screen.dart';
+import 'package:flutter_app_sani/old/home_screen.dart';
 import 'package:flutter_app_sani/Screens/login.dart';
-import 'package:flutter_app_sani/constants.dart';
+import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SignupPage extends StatelessWidget {

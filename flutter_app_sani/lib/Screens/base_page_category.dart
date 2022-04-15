@@ -4,9 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:flutter_app_sani/models/categories.dart';
 
-import 'base_page_category.dart';
-
-class MyHomePage extends StatelessWidget {
+class MyHomePage2 extends StatelessWidget {
+  String nomeCategoria;
+  MyHomePage2(this.nomeCategoria);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,25 +21,6 @@ class MyHomePage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 18.0),
                 child: Row(
                   children: [
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Benvenuto,\n",
-                            style: kTitleStyle.copyWith(
-                              fontSize: 26.0,
-                              color: kGrey2Color,
-                            ),
-                          ),
-                          TextSpan(
-                            text: "nella tua cartella sanitaria",
-                            style: kTitleStyle.copyWith(
-                              fontSize: 26.0,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                     Spacer(),
                     CircleAvatar(
                       radius: 20.0,
@@ -49,30 +30,6 @@ class MyHomePage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.0),
-              Container(
-                width: double.infinity,
-                height: 55.0,
-                margin: EdgeInsets.symmetric(horizontal: 18.0),
-                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-                decoration: BoxDecoration(
-                  color: kGrey1Color,
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                child: Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "cerca",
-                      icon: Icon(
-                        FontAwesomeIcons.search,
-                        size: 20.0,
-                        color: Colors.black54,
-                      ),
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: 25.0),
               Container(
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(horizontal: 18.0, vertical: 20.0),
@@ -87,7 +44,7 @@ class MyHomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text("Categorie", style: kTitleStyle),
+                        Text(nomeCategoria, style: kTitleStyle),
                       ],
                     ),
                     ListView.builder(
