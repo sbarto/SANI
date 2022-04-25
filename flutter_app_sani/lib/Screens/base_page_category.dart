@@ -1,18 +1,19 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/details/analisi_sangue.dart';
-import 'package:flutter_app_sani/profile/gruppo_sanguigno.dart';
-import 'package:flutter_app_sani/cards/analisiCard.dart';
-import 'package:flutter_app_sani/cards/esamiDiagnosticiCard.dart';
-import 'package:flutter_app_sani/cards/visiteMedicheCard.dart';
-import 'package:flutter_app_sani/cards/controlliCard.dart';
-import 'package:flutter_app_sani/cards/prescrizioniCard.dart';
-import 'package:flutter_app_sani/models/esamiDiagnostici.dart';
-import 'package:flutter_app_sani/models/visiteMediche.dart';
-import 'package:flutter_app_sani/models/analisi.dart';
-import 'package:flutter_app_sani/models/controlli.dart';
-import 'package:flutter_app_sani/models/prescrizioni.dart';
+import 'package:flutter_app_sani/details/analisiSangue.dart';
+import 'package:flutter_app_sani/details/esamiRm.dart';
+import 'package:flutter_app_sani/details/visiteSpecialistiche.dart';
+import 'package:flutter_app_sani/cards/categorie/analisiCard.dart';
+import 'package:flutter_app_sani/cards/categorie/esamiDiagnosticiCard.dart';
+import 'package:flutter_app_sani/cards/categorie/visiteMedicheCard.dart';
+import 'package:flutter_app_sani/cards/categorie/controlliCard.dart';
+import 'package:flutter_app_sani/cards/categorie/prescrizioniCard.dart';
+import 'package:flutter_app_sani/models/categorie/esamiDiagnostici.dart';
+import 'package:flutter_app_sani/models/categorie/visiteMediche.dart';
+import 'package:flutter_app_sani/models/categorie/analisi.dart';
+import 'package:flutter_app_sani/models/categorie/controlli.dart';
+import 'package:flutter_app_sani/models/categorie/prescrizioni.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 
 class CategoryBaseScreen extends StatelessWidget {
@@ -113,8 +114,19 @@ class CategoryBaseScreen extends StatelessWidget {
       shrinkWrap: true,
       physics: ScrollPhysics(),
       itemBuilder: (context, index) {
+        var visite = visiteMedicheList[index];
         return InkWell(
-            child: visiteMedicheCard(visiteMediche: visiteMedicheList[index]));
+            onTap: () {
+              if (visite.value == "1") {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => visiteSpecialistiche(),
+                  ),
+                );
+              }
+            },
+            child: visiteMedicheCard(visiteMediche: visite));
       },
     );
   }
@@ -131,9 +143,19 @@ class CategoryBaseScreen extends StatelessWidget {
       shrinkWrap: true,
       physics: ScrollPhysics(),
       itemBuilder: (context, index) {
+        var esami = esamiDiagnosticiList[index];
         return InkWell(
-            child: esamiDiagnosticiCard(
-                esamiDiagnostici: esamiDiagnosticiList[index]));
+            onTap: () {
+              if (esami.value == "1") {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => esamiRM(),
+                  ),
+                );
+              }
+            },
+            child: esamiDiagnosticiCard(esamiDiagnostici: esami));
       },
     );
   }
@@ -158,7 +180,6 @@ class CategoryBaseScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    //TODO DA CAMBIARE
                     builder: (context) => analisiSangue(),
                   ),
                 );
@@ -198,8 +219,19 @@ class CategoryBaseScreen extends StatelessWidget {
       shrinkWrap: true,
       physics: ScrollPhysics(),
       itemBuilder: (context, index) {
+        var prescrizioni = prescrizioniList[index];
         return InkWell(
-          child: prescrizioniCard(prescrizioni: prescrizioniList[index]),
+          onTap: () {
+            if (prescrizioni.value == "1") {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => analisiSangue(),
+                ),
+              );
+            }
+          },
+          child: prescrizioniCard(prescrizioni: prescrizioni),
         );
       },
     );

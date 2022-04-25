@@ -24,8 +24,4 @@ List<Specialisti> specialistiList = [
     value: "4",
     name: "Podologo",
   ),
-  Specialisti(
-    value: "5",
-    name: "Altro..",
-  ),
 ];

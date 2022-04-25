@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/models/prescrizioni.dart';
+import 'package:flutter_app_sani/models/categorie/visiteMediche.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 
-class prescrizioniCard extends StatelessWidget {
-  final Prescrizioni prescrizioni;
-  prescrizioniCard({this.prescrizioni});
+class visiteMedicheCard extends StatelessWidget {
+  final VisiteMediche visiteMediche;
+  visiteMedicheCard({this.visiteMediche});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 10.0,
-      shadowColor: Colors.green,
+      shadowColor: Colors.blue,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(22.0),
       ),
@@ -26,7 +26,7 @@ class prescrizioniCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.0),
                 color: kBlue2Color,
                 image: DecorationImage(
-                  image: AssetImage(prescrizioni.image),
+                  image: AssetImage(visiteMediche.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -38,14 +38,10 @@ class prescrizioniCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(width: 70.0),
-                    Text(
-                      prescrizioni.name,
-                      style: kTitleStyle,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    textTypeVisiteMediche(visiteMediche: visiteMediche),
                     SizedBox(height: 3.0),
                     Text(
-                      prescrizioni.description,
+                      visiteMediche.description,
                       overflow: TextOverflow.ellipsis,
                       style: kCategoryStyle.copyWith(
                           color: Color.fromARGB(255, 65, 65, 65)),
@@ -58,5 +54,34 @@ class prescrizioniCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class textTypeVisiteMediche extends StatelessWidget {
+  const textTypeVisiteMediche({
+    Key key,
+    @required this.visiteMediche,
+  }) : super(key: key);
+
+  final VisiteMediche visiteMediche;
+
+  @override
+  Widget build(BuildContext context) {
+    if (visiteMediche.value == "1") {
+      return Text(
+        visiteMediche.name,
+        style: kTitleStyle.copyWith(
+            fontSize: 24,
+            decoration: TextDecoration.underline,
+            color: bluPrimaryColor),
+        overflow: TextOverflow.ellipsis,
+      );
+    } else {
+      return Text(
+        visiteMediche.name,
+        style: kTitleStyle,
+        overflow: TextOverflow.ellipsis,
+      );
+    }
   }
 }

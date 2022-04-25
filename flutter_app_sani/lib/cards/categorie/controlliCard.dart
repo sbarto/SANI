@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/models/visiteMediche.dart';
+import 'package:flutter_app_sani/models/categorie/controlli.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 
-class visiteMedicheCard extends StatelessWidget {
-  final VisiteMediche visiteMediche;
-  visiteMedicheCard({this.visiteMediche});
+class controlliCard extends StatelessWidget {
+  final Controlli controlli;
+  controlliCard({this.controlli});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 10.0,
-      shadowColor: Colors.blue,
+      shadowColor: Colors.blueGrey,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(22.0),
       ),
@@ -26,7 +26,7 @@ class visiteMedicheCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.0),
                 color: kBlue2Color,
                 image: DecorationImage(
-                  image: AssetImage(visiteMediche.image),
+                  image: AssetImage(controlli.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -39,13 +39,13 @@ class visiteMedicheCard extends StatelessWidget {
                   children: [
                     SizedBox(width: 70.0),
                     Text(
-                      visiteMediche.name,
+                      controlli.name,
                       style: kTitleStyle,
                       overflow: TextOverflow.ellipsis,
                     ),
                     SizedBox(height: 3.0),
                     Text(
-                      visiteMediche.description,
+                      controlli.description,
                       overflow: TextOverflow.ellipsis,
                       style: kCategoryStyle.copyWith(
                           color: Color.fromARGB(255, 65, 65, 65)),

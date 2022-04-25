@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/models/controlli.dart';
+import 'package:flutter_app_sani/models/categorie/analisi.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 
-class controlliCard extends StatelessWidget {
-  final Controlli controlli;
-  controlliCard({this.controlli});
+class analisiCard extends StatelessWidget {
+  final Analisi analisi;
+  analisiCard({this.analisi});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 10.0,
-      shadowColor: Colors.blueGrey,
+      shadowColor: Colors.red,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(22.0),
       ),
@@ -26,7 +26,7 @@ class controlliCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.0),
                 color: kBlue2Color,
                 image: DecorationImage(
-                  image: AssetImage(controlli.image),
+                  image: AssetImage(analisi.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -38,14 +38,10 @@ class controlliCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(width: 70.0),
-                    Text(
-                      controlli.name,
-                      style: kTitleStyle,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                    textTypeAnalisi(analisi: analisi),
                     SizedBox(height: 3.0),
                     Text(
-                      controlli.description,
+                      analisi.description,
                       overflow: TextOverflow.ellipsis,
                       style: kCategoryStyle.copyWith(
                           color: Color.fromARGB(255, 65, 65, 65)),
@@ -58,5 +54,34 @@ class controlliCard extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class textTypeAnalisi extends StatelessWidget {
+  const textTypeAnalisi({
+    Key key,
+    @required this.analisi,
+  }) : super(key: key);
+
+  final Analisi analisi;
+
+  @override
+  Widget build(BuildContext context) {
+    if (analisi.value == "1") {
+      return Text(
+        analisi.name,
+        style: kTitleStyle.copyWith(
+            fontSize: 24,
+            decoration: TextDecoration.underline,
+            color: bluPrimaryColor),
+        overflow: TextOverflow.ellipsis,
+      );
+    } else {
+      return Text(
+        analisi.name,
+        style: kTitleStyle,
+        overflow: TextOverflow.ellipsis,
+      );
+    }
   }
 }

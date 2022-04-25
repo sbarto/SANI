@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/models/analisi.dart';
+import 'package:flutter_app_sani/models/categorie/esamiDiagnostici.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 
-class analisiCard extends StatelessWidget {
-  final Analisi analisi;
-  analisiCard({this.analisi});
+class esamiDiagnosticiCard extends StatelessWidget {
+  final EsamiDiagnostici esamiDiagnostici;
+  esamiDiagnosticiCard({this.esamiDiagnostici});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 10.0,
-      shadowColor: Colors.red,
+      shadowColor: Colors.yellow,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(22.0),
       ),
       child: Container(
-        padding: EdgeInsets.only(left: 5.0, top: 25.0, bottom: 25),
+        padding: EdgeInsets.only(left: 15.0, top: 25.0, bottom: 25),
         width: double.infinity,
         height: 100.0,
         child: Row(
@@ -26,21 +26,23 @@ class analisiCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18.0),
                 color: kBlue2Color,
                 image: DecorationImage(
-                  image: AssetImage(analisi.image),
+                  image: AssetImage(esamiDiagnostici.image),
                   fit: BoxFit.cover,
                 ),
               ),
             ),
+            SizedBox(width: 30.0),
             Expanded(
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(width: 70.0),
-                    textTypeAnalisi(analisi: analisi),
+                    textTypeEsamiDiagnostici(
+                        esamiDiagnostici: esamiDiagnostici),
                     SizedBox(height: 3.0),
                     Text(
-                      analisi.description,
+                      esamiDiagnostici.description,
                       overflow: TextOverflow.ellipsis,
                       style: kCategoryStyle.copyWith(
                           color: Color.fromARGB(255, 65, 65, 65)),
@@ -56,28 +58,28 @@ class analisiCard extends StatelessWidget {
   }
 }
 
-class textTypeAnalisi extends StatelessWidget {
-  const textTypeAnalisi({
+class textTypeEsamiDiagnostici extends StatelessWidget {
+  const textTypeEsamiDiagnostici({
     Key key,
-    @required this.analisi,
+    @required this.esamiDiagnostici,
   }) : super(key: key);
 
-  final Analisi analisi;
+  final EsamiDiagnostici esamiDiagnostici;
 
   @override
   Widget build(BuildContext context) {
-    if (analisi.value == "1") {
+    if (esamiDiagnostici.value == "1") {
       return Text(
-        analisi.name,
+        esamiDiagnostici.name,
         style: kTitleStyle.copyWith(
             fontSize: 24,
             decoration: TextDecoration.underline,
-            color: Color.fromARGB(255, 255, 0, 0)),
+            color: bluPrimaryColor),
         overflow: TextOverflow.ellipsis,
       );
     } else {
       return Text(
-        analisi.name,
+        esamiDiagnostici.name,
         style: kTitleStyle,
         overflow: TextOverflow.ellipsis,
       );
