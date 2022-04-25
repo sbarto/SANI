@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_sani/old/home_screen.dart';
+
 import 'package:flutter_app_sani/Screens/login.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'my_home_page.dart';
 
 class SignupPage extends StatelessWidget {
   TextEditingController loginController = TextEditingController();
@@ -86,7 +88,7 @@ class SignupPage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreen()));
+                              builder: (context) => MyHomePage()));
                     }).onError((error, stackTrace) {
                       print("Error ${error.toString()}");
                     });

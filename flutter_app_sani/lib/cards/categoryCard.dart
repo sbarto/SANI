@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sani/models/categories.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
-import 'package:flutter_app_sani/details/categoryDetail.dart';
-
 import '../Screens/base_page_category.dart';
 
 class categoryCard extends StatelessWidget {
@@ -12,14 +10,14 @@ class categoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 1.0,
+      elevation: 10.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(18.0),
       ),
       child: Container(
         padding: EdgeInsets.all(12.0),
         width: double.infinity,
-        height: 90.0,
+        height: 100.0,
         child: Row(
           children: [
             Container(
@@ -44,6 +42,13 @@ class categoryCard extends StatelessWidget {
                       style: titoloCategorie,
                       overflow: TextOverflow.ellipsis,
                     ),
+                    SizedBox(height: 3.0),
+                    Text(
+                      category.description,
+                      overflow: TextOverflow.ellipsis,
+                      style: kCategoryStyle.copyWith(
+                          color: Color.fromARGB(255, 65, 65, 65)),
+                    ),
                   ],
                 ),
               ),
@@ -67,7 +72,8 @@ class categoryCard extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MyHomePage2(category.name)),
+                              builder: (context) => CategoryBaseScreen(
+                                  category.name, category.value)),
                         );
                       },
                       color: kGreenColor,

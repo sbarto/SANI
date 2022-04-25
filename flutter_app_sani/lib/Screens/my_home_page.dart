@@ -4,8 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:flutter_app_sani/models/categories.dart';
 
-import 'base_page_category.dart';
-
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,17 +53,17 @@ class MyHomePage extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: 18.0),
                 padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                 decoration: BoxDecoration(
-                  color: kGrey1Color,
+                  color: kGreyColorVisite,
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: Center(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: "cerca",
+                      hintText: "cerca...",
                       icon: Icon(
                         FontAwesomeIcons.search,
                         size: 20.0,
-                        color: Colors.black54,
+                        color: kBlue1Color,
                       ),
                       border: InputBorder.none,
                     ),
@@ -81,7 +79,7 @@ class MyHomePage extends StatelessWidget {
                     topLeft: Radius.circular(25.0),
                     topRight: Radius.circular(25.0),
                   ),
-                  color: kBlue2Color,
+                  color: kGrey1Color,
                 ),
                 child: Column(
                   children: [
@@ -90,17 +88,20 @@ class MyHomePage extends StatelessWidget {
                         Text("Categorie", style: kTitleStyle),
                       ],
                     ),
-                    ListView.builder(
+                    ListView.separated(
+                      separatorBuilder: (BuildContext context, int index) {
+                        return SizedBox(
+                          height: 15,
+                        );
+                      },
                       itemCount: categoriesList.length,
                       scrollDirection: Axis.vertical,
                       shrinkWrap: true,
                       physics: ScrollPhysics(),
                       itemBuilder: (context, index) {
-                        var category = categoriesList[index];
-
+                        var category1 = categoriesList[index];
                         return InkWell(
-                            onTap: () {},
-                            child: categoryCard(category: category));
+                            child: categoryCard(category: category1));
                       },
                     ),
                   ],
@@ -108,49 +109,6 @@ class MyHomePage extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class CategoriesItem extends StatelessWidget {
-  final String title;
-  final Color color;
-  final IconData icon;
-  CategoriesItem({this.title, this.color, this.icon});
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 15.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.0),
-            border: Border.all(
-              color: kGrey2Color,
-              width: 1.0,
-            )),
-        child: Row(
-          children: [
-            Container(
-              width: 50.0,
-              height: 50.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12.0),
-                color: color,
-              ),
-              child: Center(
-                child: Icon(
-                  icon,
-                  size: 25.0,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            SizedBox(width: 12.0),
-            Text(title, style: kCategoryStyle),
-          ],
         ),
       ),
     );

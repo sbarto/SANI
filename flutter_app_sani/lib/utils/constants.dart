@@ -5,7 +5,9 @@ const bluPrimaryColor = Color(0xff5079CA);
 const grayPrimaryColor = Color(0xFFC4C4C4);
 const grayDarkPrimaryColor = Color(0xFFCCCCCC);
 
-const kGrey1Color = Color(0xFFF3F3F3);
+const kGrey1Color = Color.fromARGB(255, 219, 241, 253);
+const kGreyColorVisite = Color.fromARGB(255, 237, 238, 238);
+
 const kGrey2Color = Color(0xFFA9A8A8);
 const kBlue1Color = Color(0xFF40BEEE);
 const kBlue2Color = Color(0xFFD9F2FC);
@@ -17,6 +19,14 @@ const kGreen2Color = Color(0xFF58c697);
 var kTitleStyle = GoogleFonts.lato(
   textStyle: TextStyle(
     fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  ),
+);
+
+var titoloGrande = GoogleFonts.lato(
+  textStyle: TextStyle(
+    fontSize: 30.0,
     fontWeight: FontWeight.bold,
     color: Colors.black,
   ),
