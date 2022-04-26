@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sani/cards/categoryCard.dart';
+import 'package:flutter_app_sani/utils/goToProfile.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:flutter_app_sani/models/categories.dart';
@@ -39,10 +40,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    CircleAvatar(
-                      radius: 20.0,
-                      backgroundImage: AssetImage("assets/user.png"),
-                    )
+                    goToProfile(context),
                   ],
                 ),
               ),

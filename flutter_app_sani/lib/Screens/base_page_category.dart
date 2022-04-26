@@ -15,6 +15,8 @@ import 'package:flutter_app_sani/models/categorie/analisi.dart';
 import 'package:flutter_app_sani/models/categorie/controlli.dart';
 import 'package:flutter_app_sani/models/categorie/prescrizioni.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
+import 'package:flutter_app_sani/utils/goToHome.dart';
+import 'package:flutter_app_sani/utils/goToProfile.dart';
 
 class CategoryBaseScreen extends StatelessWidget {
   String nomeCategoria;
@@ -40,11 +42,9 @@ class CategoryBaseScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 18.0),
                 child: Row(
                   children: [
+                    goToHome(context, Colors.white),
                     Spacer(),
-                    CircleAvatar(
-                      radius: 20.0,
-                      backgroundImage: AssetImage("assets/user.png"),
-                    )
+                    goToProfile(context),
                   ],
                 ),
               ),
