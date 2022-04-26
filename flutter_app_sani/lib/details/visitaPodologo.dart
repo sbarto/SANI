@@ -34,7 +34,7 @@ class VisitaPodologo extends StatelessWidget {
                             ' In seguito ad esame Baropodometrico si evidenzia \n carico in maggioranza sull’arcata esterna del piede Dx \n con particolare attenzione ad un iniziale \n valgismo dell’alluce DX',
                             style: GoogleFonts.poppins(
                               textStyle: Theme.of(context).textTheme.headline4,
-                              fontSize: 12,
+                              fontSize: 11,
                               color: Colors.black54,
                               fontWeight: FontWeight.w700,
                             ),

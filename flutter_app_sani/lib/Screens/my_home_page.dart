@@ -33,7 +33,7 @@ class MyHomePage extends StatelessWidget {
                           TextSpan(
                             text: "nella tua cartella sanitaria",
                             style: kTitleStyle.copyWith(
-                              fontSize: 26.0,
+                              fontSize: 24.0,
                             ),
                           ),
                         ],
