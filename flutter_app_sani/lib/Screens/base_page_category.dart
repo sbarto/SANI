@@ -18,6 +18,8 @@ import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:flutter_app_sani/utils/goToHome.dart';
 import 'package:flutter_app_sani/utils/goToProfile.dart';
 
+import '../details/farmaci.dart';
+
 class CategoryBaseScreen extends StatelessWidget {
   String nomeCategoria;
   String value;
@@ -226,7 +228,7 @@ class CategoryBaseScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => analisiSangue(),
+                  builder: (context) => Farmaci(),
                 ),
               );
             }

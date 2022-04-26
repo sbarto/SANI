@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sani/cards/sottocategorie/specialistiCard.dart';
+import 'package:flutter_app_sani/details/podologo.dart';
 import 'package:flutter_app_sani/models/sottocategorie/specialisti.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -72,6 +73,16 @@ class visiteSpecialistiche extends StatelessWidget {
                         itemBuilder: (context, index) {
                           var category1 = specialistiList[index];
                           return InkWell(
+                              onTap: () {
+                                if (category1.value == "4") {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => Podologo(),
+                                    ),
+                                  );
+                                }
+                              },
                               child: specialistiCard(specialisti: category1));
                         },
                       ),

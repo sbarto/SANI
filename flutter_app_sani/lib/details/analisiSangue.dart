@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sani/details/risultatiAnalisi.dart';
 import 'package:flutter_app_sani/models/sottocategorie/analisiSangue.dart';
 import 'package:flutter_app_sani/cards/sottocategorie/AnalisiSangueCard.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
@@ -72,6 +73,16 @@ class analisiSangue extends StatelessWidget {
                         itemBuilder: (context, index) {
                           var category1 = analisiSangueList[index];
                           return InkWell(
+                              onTap: () {
+                                if (category1.value == "1") {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => VisitaAnalisi(),
+                                    ),
+                                  );
+                                }
+                              },
                               child:
                                   AnalisiSangueCard(analisiSangue: category1));
                         },

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_sani/details/ricettaFarmaco.dart';
 import 'package:flutter_app_sani/models/sottocategorie/farmaci.dart';
 import 'package:flutter_app_sani/cards/sottocategorie/farmaciCard.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class farmaci extends StatelessWidget {
+class Farmaci extends StatelessWidget {
   final Farmaci farmac;
-  const farmaci({Key key, this.farmac}) : super(key: key);
+  const Farmaci({Key key, this.farmac}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -71,6 +72,16 @@ class farmaci extends StatelessWidget {
                         itemBuilder: (context, index) {
                           var category1 = farmaciList[index];
                           return InkWell(
+                              onTap: () {
+                                if (category1.value == "1") {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => RicettaFarmaco(),
+                                    ),
+                                  );
+                                }
+                              },
                               child: FarmaciCard(farmaci: category1));
                         },
                       ),

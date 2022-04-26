@@ -83,14 +83,13 @@ class Profile extends StatelessWidget {
 
   RaisedButton buttonSanitario(BuildContext context, String testo, int id) {
     return RaisedButton(
-      padding: EdgeInsets.symmetric(horizontal: 120),
       onPressed: () {
         if (id == 1) {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => DatiFisici()));
         } else if (id == 2) {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => MedicoBase()));
+              context, MaterialPageRoute(builder: (contesxt) => MedicoBase()));
         } else if (id == 3) {
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => BloodGroup()));
@@ -105,7 +104,9 @@ class Profile extends StatelessWidget {
       color: bluPrimaryColor,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: textProfile(context, testo, Colors.white),
+      child: SizedBox(
+          width: double.infinity,
+          child: textProfile(context, testo, Colors.white)),
     );
   }
 
@@ -175,15 +176,25 @@ class Profile extends StatelessWidget {
     return Container(
         child: Column(
       children: [
-        buttonSanitario(context, "Dati Fisici", 1),
+        Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: buttonSanitario(context, "Dati Fisici", 1)),
         SizedBox(height: 5.0),
-        buttonSanitario(context, "Medico di Base", 2),
+        Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: buttonSanitario(context, "Medico di Base", 2)),
         SizedBox(height: 5.0),
-        buttonSanitario(context, "Gruppo Sanguigno", 3),
+        Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: buttonSanitario(context, "Gruppo Sanguigno", 3)),
         SizedBox(height: 5.0),
-        buttonSanitario(context, "Malattie Croniche", 4),
+        Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: buttonSanitario(context, "Malattie Croniche", 4)),
         SizedBox(height: 5.0),
-        buttonSanitario(context, "Assicurazione", 5),
+        Padding(
+            padding: const EdgeInsets.only(left: 20, right: 20),
+            child: buttonSanitario(context, "Assicurazione", 5)),
         SizedBox(height: 5.0),
       ],
     ));
@@ -211,6 +222,7 @@ class Profile extends StatelessWidget {
   Text textProfile(BuildContext context, String testo, Color color) {
     return Text(
       testo,
+      textAlign: TextAlign.center,
       style: GoogleFonts.poppins(
         textStyle: Theme.of(context).textTheme.headline4,
         fontSize: 16,

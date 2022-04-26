@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_sani/cards/sottocategorie/rmCard.dart';
+import 'package:flutter_app_sani/details/VisitaRm.dart';
 import 'package:flutter_app_sani/models/sottocategorie/risonanze.dart';
 import 'package:flutter_app_sani/utils/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,7 +72,18 @@ class esamiRM extends StatelessWidget {
                         physics: ScrollPhysics(),
                         itemBuilder: (context, index) {
                           var category1 = risonanzaList[index];
-                          return InkWell(child: rmCard(risonanza: category1));
+                          return InkWell(
+                              onTap: () {
+                                if (category1.value == "1") {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => VisitaRm(),
+                                    ),
+                                  );
+                                }
+                              },
+                              child: rmCard(risonanza: category1));
                         },
                       ),
                     ),
